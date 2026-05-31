@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliza Nisar | Web Designing & Development Portfolio</title>
+
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description"
+        content="Professional portfolio of Aliza Nisar, a creative Web Designing and Development student specializing in frontend development, interactive glassmorphic UI/UX, and responsive web design.">
+    <meta name="keywords"
+        content="Aliza Nisar, Web Design, Web Development, Frontend Developer, UI/UX Designer, Responsive Web Design, Figma, React, HTML5, CSS3, JavaScript, Tailwind CSS">
+    <meta name="author" content="Aliza Nisar">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            navy: 'var(--bg-secondary)',
+                            bg: 'var(--bg-primary)',
+                            purple: 'var(--primary)',
+                            cyan: 'var(--secondary)',
+                            rose: 'var(--accent)',
+                            border: 'var(--card-border)',
+                            text: 'var(--text-primary)',
+                            secondary: 'var(--text-secondary)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body class="relative min-h-screen">
+
+    <!-- Custom Cursor Trails -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-trail"></div>
+
+    <!-- 1. Splash Preloader -->
+    <div class="preloader">
+        <div class="loader-logo" data-aos="zoom-in" data-aos-duration="600">ALIZA.</div>
+        <div class="loader-bar-bg">
+            <div class="loader-bar-fill"></div>
+        </div>
+        <div class="loader-number">0%</div>
+    </div>
+
+    <!-- Dynamic Mesh Background Particles -->
+    <div class="bg-grid"></div>
+    <div class="floating-mesh-1"></div>
+    <div class="floating-mesh-2"></div>
+
+    <!-- 2. Sticky Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 py-6 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#hero"
+                class="text-2xl font-extrabold font-outfit tracking-wide bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent transition-transform hover:scale-105 duration-300">
+                ALIZA<span class="text-cyber-cyan font-light">.NISAR</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-8 font-medium">
+                <a href="#hero" class="nav-link active py-2 text-sm uppercase tracking-widest">Home</a>
+                <a href="#about" class="nav-link py-2 text-sm uppercase tracking-widest">About</a>
+                <a href="#skills" class="nav-link py-2 text-sm uppercase tracking-widest">Skills</a>
+                <a href="#services" class="nav-link py-2 text-sm uppercase tracking-widest">Services</a>
+                <a href="#portfolio" class="nav-link py-2 text-sm uppercase tracking-widest">Projects</a>
+                <a href="#contact"
+                    class="nav-link py-2 text-sm uppercase tracking-widest font-semibold text-cyber-cyan">Contact</a>
+            </div>
+
+            <!-- Header Buttons & Theme Toggle -->
+            <div class="hidden lg:flex items-center gap-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle"
+                    class="theme-toggle w-10 h-10 rounded-full glass-panel flex items-center justify-center text-cyber-cyan hover:text-white transition-all duration-300"
+                    aria-label="Toggle theme">
+                    <i class="fas fa-sun text-lg"></i>
+                </button>
+
+                <!-- CTA Button -->
+                <a href="#contact"
+                    class="glow-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold text-sm tracking-wider uppercase shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 text-white transition-all">
+                    Hire Me
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <div class="flex lg:hidden items-center gap-3">
+                <!-- Theme Toggle for Mobile -->
+                <button id="theme-toggle-mobile"
+                    class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-cyber-cyan"
+                    onclick="document.getElementById('theme-toggle').click();" aria-label="Toggle theme">
+                    <i class="fas fa-adjust"></i>
+                </button>
+                <button id="mobile-menu-btn"
+                    class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white"
+                    aria-label="Open navigation menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Full Screen Menu Overlay -->
+        <div id="mobile-menu"
+            class="hidden fixed inset-0 top-[88px] w-full h-[calc(100vh-88px)] bg-cyber-bg/95 backdrop-blur-xl flex-col items-center justify-center gap-8 z-40 transition-all duration-500 border-t border-cyber-border/40">
+            <a href="#hero" class="text-2xl font-outfit uppercase tracking-widest nav-link">Home</a>
+            <a href="#about" class="text-2xl font-outfit uppercase tracking-widest nav-link">About</a>
+            <a href="#skills" class="text-2xl font-outfit uppercase tracking-widest nav-link">Skills</a>
+            <a href="#services" class="text-2xl font-outfit uppercase tracking-widest nav-link">Services</a>
+            <a href="#portfolio" class="text-2xl font-outfit uppercase tracking-widest nav-link">Projects</a>
+            <a href="#contact"
+                class="text-2xl font-outfit uppercase tracking-widest nav-link text-cyber-cyan font-bold">Contact</a>
+
+            <a href="#contact"
+                class="mt-4 px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold uppercase tracking-wider text-white shadow-lg">
+                Hire Me
+            </a>
+        </div>
+    </nav>
+
+    <!-- 3. Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center py-24 md:py-32 overflow-hidden">
+        <!-- Overlay Gradient for Readability -->
+        <div class="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-[0.12] z-0"
+            style="background-image: url('hero_bg.png');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-cyber-bg/20 via-cyber-bg/85 to-cyber-bg z-0"></div>
+
+        <div
+            class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+            <!-- Left Bio Info -->
+            <div class="col-span-1 lg:col-span-7 flex flex-col items-start text-left" data-aos="fade-right"
+                data-aos-duration="1200">
+                <!-- Modern neon label -->
+                <span
+                    class="px-4 py-1.5 rounded-full glass-panel border-cyan-500/30 text-xs md:text-sm font-semibold uppercase tracking-widest text-cyber-cyan mb-6 shadow-md shadow-cyan-500/10">
+                    <i class="fas fa-code mr-2 animate-pulse text-cyan-400"></i>Web Designing & Development
+                </span>
+
+                <!-- Custom Main Title -->
+                <h1
+                    class="text-4xl md:text-6xl lg:text-7xl font-extrabold font-outfit leading-tight mb-4 tracking-tight">
+                    Hi, I'm <span class="gradient-text font-black">Aliza Nisar</span>
+                </h1>
+
+                <!-- Typing Loop text -->
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-medium font-outfit text-white/90 min-h-[40px] mb-6">
+                    A passionate <span id="typing-text" class="text-cyber-cyan font-semibold"></span><span
+                        class="typed-cursor">|</span>
+                </h2>
+
+                <!-- Paragraph text -->
+                <p class="text-cyber-secondary text-base md:text-lg max-w-xl mb-8 leading-relaxed font-light">
+                    Designing responsive modern code architectures and premium visual systems. I craft pixel-perfect
+                    user interfaces with sleek interactive graphics that make websites feel alive.
+                </p>
+
+                <!-- CTA buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="#contact"
+                        class="glow-btn px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold text-center uppercase tracking-wider text-sm shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transform hover:-translate-y-1">
+                        Get In Touch
+                    </a>
+                    <a href="#portfolio"
+                        class="px-8 py-4 rounded-full glass-panel text-white hover:text-cyber-cyan font-bold text-center border-white/10 hover:border-cyan-500/30 uppercase tracking-wider text-sm hover:shadow-lg transition-all duration-300">
+                        View Projects
+                    </a>
+                </div>
+
+                <!-- Social media float -->
+                <div class="flex items-center gap-6 mt-12">
+                    <span class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Connect with
+                        me:</span>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.linkedin.com/in/aliza-nisar-04056a412/" target="_blank"
+                            class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-cyber-secondary hover:text-cyber-cyan hover:scale-110 duration-300"
+                            aria-label="LinkedIn Profile">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/alizanisar-del" target="_blank"
+                            class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-cyber-secondary hover:text-cyber-cyan hover:scale-110 duration-300"
+                            aria-label="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.me/923000000000" target="_blank"
+                            class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-cyber-secondary hover:text-emerald-400 hover:scale-110 duration-300"
+                            aria-label="WhatsApp Contact">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Cyber Illustration Badge -->
+            <div class="col-span-1 lg:col-span-5 relative flex justify-center items-center" data-aos="fade-left"
+                data-aos-duration="1200">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full flex items-center justify-center">
+                    <!-- Rotating Glowing Borders -->
+                    <div
+                        class="absolute inset-0 rounded-full border-2 border-dashed border-cyan-500/20 animate-[spin_40s_linear_infinite]">
+                    </div>
+                    <div
+                        class="absolute inset-4 rounded-full border border-dashed border-purple-500/30 animate-[spin_20s_linear_infinite_reverse]">
+                    </div>
+                    <div
+                        class="absolute inset-8 rounded-full bg-gradient-to-tr from-cyan-500/5 to-purple-600/10 filter blur-xl">
+                    </div>
+
+                    <!-- Floating Geometric Nodes -->
+                    <div
+                        class="absolute -top-4 right-10 bg-cyan-500/10 text-cyber-cyan glass-panel px-4 py-2 border-cyan-500/20 rounded-xl text-xs font-semibold uppercase tracking-widest flex items-center gap-2 animate-badge-float-1 z-20">
+                        <i class="fas fa-laptop-code"></i> Frontend Developer
+                    </div>
+                    <div
+                        class="absolute bottom-10 -left-6 bg-purple-500/10 text-cyber-purple glass-panel px-4 py-2 border-purple-500/20 rounded-xl text-xs font-semibold uppercase tracking-widest flex items-center gap-2 animate-badge-float-2 z-20">
+                        <i class="fab fa-figma text-rose-400"></i> UI/UX Designer
+                    </div>
+
+                    <!-- Main Glowing Cyber Orb -->
+                    <div
+                        class="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-cyber-cyan/30 shadow-2xl shadow-cyan-500/20 relative z-10 glass-panel">
+                        <img src="assets/images/profile.png" alt="Aliza Nisar avatar portrait"
+                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-110 mix-blend-normal">
+                        <!-- Neon gradient overlays -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-purple-900/40 via-transparent to-cyan-900/10 mix-blend-color-burn pointer-events-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave shape Divider -->
+        <div class="wave-divider bottom-0">
+            <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 4. About Section -->
+    <section id="about" class="relative py-28 bg-cyber-bg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+            <!-- Headline block -->
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span
+                    class="text-sm font-bold uppercase tracking-widest text-cyber-cyan font-outfit mb-3 block">Discover
+                    My Journey</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">About <span
+                        class="gradient-text font-black">Aliza Nisar</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+                <!-- Left Bio Card with custom statistics counters -->
+                <div class="col-span-1 lg:col-span-6 flex flex-col justify-between" data-aos="fade-right"
+                    data-aos-delay="200">
+                    <h3 class="text-2xl font-bold font-outfit mb-6 text-white tracking-wide">Designing Beautiful,
+                        Dynamic Solutions</h3>
+
+                    <p class="text-cyber-secondary text-base leading-relaxed mb-6 font-light">
+                        Hello! I am a student of <strong class="text-white font-medium">Web Designing &
+                            Development</strong>, with a passion for designing premium interactive experiences. I love
+                        crafting interfaces that blend technical excellence with high-fidelity creative expressions.
+                    </p>
+                    <p class="text-cyber-secondary text-base leading-relaxed mb-8 font-light">
+                        My skill set focuses heavily on building interactive interfaces using standard modern
+                        frameworks, responsive systems, clean code components, and beautiful vector structures. I aim to
+                        create websites that truly inspire.
+                    </p>
+
+                    <!-- Statistics grid (counters) -->
+                    <div class="grid grid-cols-2 gap-6 pt-4 border-t border-cyber-border/40">
+                        <div
+                            class="glass-panel p-6 flex flex-col items-start border-l-2 border-l-cyan-500 justify-center">
+                            <span
+                                class="text-2xl md:text-3xl font-extrabold font-outfit text-white mb-1 tracking-wide uppercase">
+                                Creating
+                            </span>
+                            <span class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Modern
+                                UI/UX</span>
+                        </div>
+                        <div class="glass-panel p-6 flex flex-col items-start border-l-2 border-l-purple-500">
+                            <span class="text-3xl md:text-4xl font-extrabold font-outfit text-white mb-1">
+                                <span class="counter-val" data-target="1500">0</span>+
+                            </span>
+                            <span class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Coded
+                                Hours</span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Right progress bars -->
+                <div class="col-span-1 lg:col-span-6" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold font-outfit mb-8 text-white tracking-wide">Core Development
+                        Competencies</h3>
+
+                    <div class="flex flex-col gap-6">
+                        <!-- Progress HTML5 -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2 font-medium text-sm">
+                                <span class="text-white/90">HTML5 & Semantics</span>
+                                <span class="text-cyber-cyan">95%</span>
+                            </div>
+                            <div
+                                class="w-full h-2.5 bg-cyber-navy/85 border border-cyber-border rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyan-500 to-cyan-400"
+                                    data-width="95"></div>
+                            </div>
+                        </div>
+
+                        <!-- Progress CSS3 & Tailwind -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2 font-medium text-sm">
+                                <span class="text-white/90">CSS3 & Custom Styling (Tailwind/Bootstrap)</span>
+                                <span class="text-cyber-purple">90%</span>
+                            </div>
+                            <div
+                                class="w-full h-2.5 bg-cyber-navy/85 border border-cyber-border rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-purple-600 to-purple-400"
+                                    data-width="90"></div>
+                            </div>
+                        </div>
+
+                        <!-- Progress JS -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2 font-medium text-sm">
+                                <span class="text-white/90">JavaScript (ES6+)</span>
+                                <span class="text-cyan-400">85%</span>
+                            </div>
+                            <div
+                                class="w-full h-2.5 bg-cyber-navy/85 border border-cyber-border rounded-full overflow-hidden">
+                                <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-cyan-400 to-purple-500"
+                                    data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Skills Cards Section -->
+    <section id="skills" class="relative py-28 bg-cyber-navy/40 border-y border-cyber-border/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+            <!-- Header title -->
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-sm font-bold uppercase tracking-widest text-cyber-cyan font-outfit mb-3 block">My Tech
+                    Universe</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Interactive <span
+                        class="gradient-text font-black">Skills</span> & Tools</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Skills Infinite Marquee Slider -->
+            <div class="skills-marquee-wrapper" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- Row 1 - Scrolls Left -->
+                <div class="skills-marquee-track" id="skills-row-1">
+                    <div class="skills-marquee-inner">
+                        <!-- HTML5 -->
+                        <div class="skill-slide glass-panel">
+                            <div
+                                class="skill-slide-icon bg-orange-500/10 text-orange-400 shadow-md shadow-orange-500/5">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">HTML5</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Semantics, SEO, Accessibility</p>
+                            </div>
+                        </div>
+
+                        <!-- CSS3 -->
+                        <div class="skill-slide glass-panel">
+                            <div class="skill-slide-icon bg-blue-500/10 text-blue-400 shadow-md shadow-blue-500/5">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">CSS3</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Flexbox, CSS Grids, Keyframes</p>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="skill-slide glass-panel">
+                            <div
+                                class="skill-slide-icon bg-yellow-500/10 text-yellow-400 shadow-md shadow-yellow-500/5">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">JavaScript</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">DOM, ES6+, Async/JSON</p>
+                            </div>
+                        </div>
+
+                        <!-- Bootstrap -->
+                        <div class="skill-slide glass-panel">
+                            <div
+                                class="skill-slide-icon bg-purple-500/10 text-purple-400 shadow-md shadow-purple-500/5">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">Bootstrap</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Responsive Grids, Components</p>
+                            </div>
+                        </div>
+
+                        <!-- Responsive Design -->
+                        <div class="skill-slide glass-panel">
+                            <div
+                                class="skill-slide-icon bg-emerald-500/10 text-emerald-400 shadow-md shadow-emerald-500/5">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">Responsive Design</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Mobile First, Media Queries</p>
+                            </div>
+                        </div>
+
+                        <!-- UI/UX Design -->
+                        <div class="skill-slide glass-panel">
+                            <div class="skill-slide-icon bg-rose-500/10 text-rose-400 shadow-md shadow-rose-500/5">
+                                <i class="fas fa-bezier-curve"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">UI/UX Design</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Prototyping, Wireframing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 - Scrolls Right (reverse) -->
+                <div class="skills-marquee-track marquee-reverse" id="skills-row-2">
+                    <div class="skills-marquee-inner">
+                        <!-- Git & GitHub -->
+                        <div class="skill-slide glass-panel">
+                            <div class="skill-slide-icon bg-red-500/10 text-red-400 shadow-md shadow-red-500/5">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">Git & GitHub</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Version Control, Collaboration</p>
+                            </div>
+                        </div>
+
+                        <!-- VS Code -->
+                        <div class="skill-slide glass-panel">
+                            <div class="skill-slide-icon bg-sky-500/10 text-sky-400 shadow-md shadow-sky-500/5">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">VS Code</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Extensions, Debugging, Terminal</p>
+                            </div>
+                        </div>
+
+                        <!-- Graphic Designing -->
+                        <div class="skill-slide glass-panel">
+                            <div
+                                class="skill-slide-icon bg-violet-500/10 text-violet-400 shadow-md shadow-violet-500/5">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">Graphic Designing</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Vector Art, Branding, Visuals</p>
+                            </div>
+                        </div>
+
+                        <!-- WordPress -->
+                        <div class="skill-slide glass-panel">
+                            <div
+                                class="skill-slide-icon bg-indigo-500/10 text-indigo-400 shadow-md shadow-indigo-500/5">
+                                <i class="fab fa-wordpress-simple"></i>
+                            </div>
+                            <div class="skill-slide-info">
+                                <h3 class="font-outfit font-semibold text-lg text-white">WordPress</h3>
+                                <p class="text-xs text-cyber-secondary mt-1">Themes, Customization, CMS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Services Section -->
+    <section id="services" class="relative py-28 bg-cyber-bg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+            <!-- Headline block -->
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-sm font-bold uppercase tracking-widest text-cyber-cyan font-outfit mb-3 block">What I
+                    Offer</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Professional <span
+                        class="gradient-text font-black">Services</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Service cards layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Web Design -->
+                <div class="glow-card glass-panel p-8 md:p-10 flex flex-col sm:flex-row gap-6 hover:-translate-y-2 duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 shrink-0 rounded-2xl bg-cyan-500/10 text-cyber-cyan flex items-center justify-center text-2xl">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold font-outfit text-white mb-3">Creative Web Design</h3>
+                        <p class="text-cyber-secondary text-sm leading-relaxed font-light">
+                            Crafting breathtaking aesthetic layouts, typography schemes, and creative dynamic visuals
+                            tailored strictly to user branding and premium trends.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Frontend Development -->
+                <div class="glow-card glass-panel p-8 md:p-10 flex flex-col sm:flex-row gap-6 hover:-translate-y-2 duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 shrink-0 rounded-2xl bg-purple-500/10 text-cyber-purple flex items-center justify-center text-2xl">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold font-outfit text-white mb-3">Frontend Development</h3>
+                        <p class="text-cyber-secondary text-sm leading-relaxed font-light">
+                            Developing robust, fast, responsive websites utilizing semantic clean HTML5, structured
+                            modular CSS variables, utilities, and high-performance vanilla JavaScript.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Responsive Design -->
+                <div class="glow-card glass-panel p-8 md:p-10 flex flex-col sm:flex-row gap-6 hover:-translate-y-2 duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-14 h-14 shrink-0 rounded-2xl bg-rose-500/10 text-cyber-rose flex items-center justify-center text-2xl">
+                        <i class="fas fa-crop-simple"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold font-outfit text-white mb-3">Responsive Website Design</h3>
+                        <p class="text-cyber-secondary text-sm leading-relaxed font-light">
+                            Guaranteeing absolute pixel-perfection across all device layouts (ranging from ultra-wide
+                            display structures to mobile portrait grids).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- UI/UX -->
+                <div class="glow-card glass-panel p-8 md:p-10 flex flex-col sm:flex-row gap-6 hover:-translate-y-2 duration-300"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="w-14 h-14 shrink-0 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold font-outfit text-white mb-3">UI/UX Wireframing</h3>
+                        <p class="text-cyber-secondary text-sm leading-relaxed font-light">
+                            Structuring clear blueprints and flows within Figma. Designing prototypes with elegant,
+                            user-centric micro-interactions to optimize retention metrics.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Portfolio/Projects Section -->
+    <section id="portfolio" class="relative py-28 bg-cyber-navy/40 border-y border-cyber-border/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+            <!-- Headline Title -->
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-sm font-bold uppercase tracking-widest text-cyber-cyan font-outfit mb-3 block">My
+                    Showcase</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Featured <span
+                        class="gradient-text font-black">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Project 1: School Fees and Attendance Management System -->
+                <div class="glow-card glass-panel overflow-hidden group hover:scale-[1.02] duration-500 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <!-- Project Image with Zoom -->
+                    <div class="relative overflow-hidden aspect-video border-b border-cyber-border/40">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+                            alt="School Fees & Attendance Management System preview"
+                            class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg to-transparent opacity-60"></div>
+                        <!-- Absolute Tag badge -->
+                        <span
+                            class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-500/25 border border-cyan-400/35 text-xs font-semibold text-cyan-300 uppercase tracking-widest backdrop-blur-md">
+                            HTML / CSS / JS
+                        </span>
+                    </div>
+                    <!-- Details padding -->
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3
+                                class="text-2xl font-bold font-outfit text-white mb-3 group-hover:text-cyber-cyan transition-colors duration-300">
+                                School Fees & Attendance System</h3>
+                            <p class="text-cyber-secondary text-sm font-light leading-relaxed mb-6">
+                                A comprehensive school administrative portal that handles fee records, receipt
+                                generation, and real-time student attendance tracking with responsive data grids.
+                            </p>
+                        </div>
+                        <!-- Action links -->
+                        <div class="flex items-center gap-4">
+                            <a href="https://alizanisar-del.github.io/School-fees-and-Attendance-Management-system/"
+                                target="_blank"
+                                class="glow-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-xs font-bold uppercase tracking-wider text-white">
+                                <i class="fas fa-external-link-alt mr-1.5"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/alizanisar-del/School-fees-and-Attendance-Management-system"
+                                target="_blank"
+                                class="px-6 py-2.5 rounded-full border border-white/10 text-white hover:text-cyan-400 hover:border-cyan-400/35 text-xs font-bold uppercase tracking-wider transition-all duration-300">
+                                <i class="fab fa-github mr-1.5"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Restaurant Order Management System -->
+                <div class="glow-card glass-panel overflow-hidden group hover:scale-[1.02] duration-500 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <!-- Project Image with Zoom -->
+                    <div class="relative overflow-hidden aspect-video border-b border-cyber-border/40">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+                            alt="Restaurant Order Management System preview"
+                            class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg to-transparent opacity-60"></div>
+                        <!-- Absolute Tag badge -->
+                        <span
+                            class="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-500/25 border border-purple-400/35 text-xs font-semibold text-purple-300 uppercase tracking-widest backdrop-blur-md">
+                            HTML / CSS / JS / Bootstrap
+                        </span>
+                    </div>
+                    <!-- Details padding -->
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3
+                                class="text-2xl font-bold font-outfit text-white mb-3 group-hover:text-cyber-cyan transition-colors duration-300">
+                                Restaurant Order Management</h3>
+                            <p class="text-cyber-secondary text-sm font-light leading-relaxed mb-6">
+                                A sleek restaurant order-taking dashboard featuring custom menu filtering, interactive
+                                cart calculation, automated bill receipt generation, and table tracking.
+                            </p>
+                        </div>
+                        <!-- Action links -->
+                        <div class="flex items-center gap-4">
+                            <a href="https://alizanisar-del.github.io/Resturant-Order-Managemant-system/"
+                                target="_blank"
+                                class="glow-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-xs font-bold uppercase tracking-wider text-white">
+                                <i class="fas fa-external-link-alt mr-1.5"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/alizanisar-del/Resturant-Order-Managemant-system"
+                                target="_blank"
+                                class="px-6 py-2.5 rounded-full border border-white/10 text-white hover:text-cyan-400 hover:border-cyan-400/35 text-xs font-bold uppercase tracking-wider transition-all duration-300">
+                                <i class="fab fa-github mr-1.5"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Hostel Management -->
+                <div class="glow-card glass-panel overflow-hidden group hover:scale-[1.02] duration-500 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <!-- Project Image with Zoom -->
+                    <div class="relative overflow-hidden aspect-video border-b border-cyber-border/40">
+                        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80"
+                            alt="Hostel Management preview"
+                            class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg to-transparent opacity-60"></div>
+                        <!-- Absolute Tag badge -->
+                        <span
+                            class="absolute top-4 right-4 px-3 py-1 rounded-full bg-rose-500/25 border border-rose-400/35 text-xs font-semibold text-rose-300 uppercase tracking-widest backdrop-blur-md">
+                            HTML / CSS / JS
+                        </span>
+                    </div>
+                    <!-- Details padding -->
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3
+                                class="text-2xl font-bold font-outfit text-white mb-3 group-hover:text-cyber-cyan transition-colors duration-300">
+                                Hostel Management System</h3>
+                            <p class="text-cyber-secondary text-sm font-light leading-relaxed mb-6">
+                                A comprehensive solution for dormitories and hostels. Monitors room allocations,
+                                resident lists, monthly billing status, and maintenance service requests.
+                            </p>
+                        </div>
+                        <!-- Action links -->
+                        <div class="flex items-center gap-4">
+                            <a href="https://alizanisar-del.github.io/Hostel-Management-System/" target="_blank"
+                                class="glow-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-xs font-bold uppercase tracking-wider text-white">
+                                <i class="fas fa-external-link-alt mr-1.5"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/alizanisar-del/Hostel-Management-System.git" target="_blank"
+                                class="px-6 py-2.5 rounded-full border border-white/10 text-white hover:text-cyan-400 hover:border-cyan-400/35 text-xs font-bold uppercase tracking-wider transition-all duration-300">
+                                <i class="fab fa-github mr-1.5"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Weather App -->
+                <div class="glow-card glass-panel overflow-hidden group hover:scale-[1.02] duration-500 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <!-- Project Image with Zoom -->
+                    <div class="relative overflow-hidden aspect-video border-b border-cyber-border/40">
+                        <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80"
+                            alt="Weather Forecast App preview"
+                            class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-bg to-transparent opacity-60"></div>
+                        <!-- Absolute Tag badge -->
+                        <span
+                            class="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/25 border border-emerald-400/35 text-xs font-semibold text-emerald-300 uppercase tracking-widest backdrop-blur-md">
+                            HTML / CSS / JS / Weather API
+                        </span>
+                    </div>
+                    <!-- Details padding -->
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3
+                                class="text-2xl font-bold font-outfit text-white mb-3 group-hover:text-cyber-cyan transition-colors duration-300">
+                                Dynamic Weather Application</h3>
+                            <p class="text-cyber-secondary text-sm font-light leading-relaxed mb-6">
+                                A responsive weather checking utility that queries meteorology APIs to fetch live
+                                weather details, displaying dynamic visual backdrops for matches.
+                            </p>
+                        </div>
+                        <!-- Action links -->
+                        <div class="flex items-center gap-4">
+                            <a href="https://alizanisar-del.github.io/weather-app/" target="_blank"
+                                class="glow-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-xs font-bold uppercase tracking-wider text-white">
+                                <i class="fas fa-external-link-alt mr-1.5"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/alizanisar-del/weather-app" target="_blank"
+                                class="px-6 py-2.5 rounded-full border border-white/10 text-white hover:text-cyan-400 hover:border-cyan-400/35 text-xs font-bold uppercase tracking-wider transition-all duration-300">
+                                <i class="fab fa-github mr-1.5"></i> GitHub Repo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 9. Contact Section -->
+    <section id="contact" class="relative py-28 bg-cyber-navy/40 border-t border-cyber-border/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+            <!-- Headline Title -->
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-sm font-bold uppercase tracking-widest text-cyber-cyan font-outfit mb-3 block">Get In
+                    Touch</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Let's Create <span
+                        class="gradient-text font-black">Something New</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+
+                <!-- Left Details Grid and Social links -->
+                <div class="col-span-1 lg:col-span-5 flex flex-col justify-between" data-aos="fade-right"
+                    data-aos-duration="1000">
+                    <div class="flex flex-col gap-6">
+                        <h3 class="text-2xl font-bold font-outfit text-white tracking-wide mb-2">Contact Details</h3>
+
+                        <!-- Email Link -->
+                        <div class="glow-card glass-panel p-6 flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyber-cyan flex items-center justify-center text-lg">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Email
+                                    Address</span>
+                                <a href="mailto:alizanisar474@gmail.com"
+                                    class="block font-medium text-white hover:text-cyber-cyan transition-colors">alizanisar474@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Location Link -->
+                        <div class="glow-card glass-panel p-6 flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-purple-500/10 text-cyber-purple flex items-center justify-center text-lg">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span
+                                    class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Current
+                                    Location</span>
+                                <span class="block font-medium text-white">R.Y.K, Pakistan</span>
+                            </div>
+                        </div>
+
+                        <!-- Work/Freelance status -->
+                        <div class="glow-card glass-panel p-6 flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
+                                <i class="fas fa-circle-check"></i>
+                            </div>
+                            <div>
+                                <span
+                                    class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Freelance
+                                    & Job Status</span>
+                                <span class="block font-medium text-emerald-400">Available For Projects</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons inside details -->
+                    <div class="mt-8 lg:mt-0 p-6 glass-panel flex flex-col gap-4">
+                        <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider">Follow My
+                            Progress:</h4>
+                        <div class="flex items-center gap-4">
+                            <a href="https://www.linkedin.com/in/aliza-nisar-04056a412/" target="_blank"
+                                class="w-11 h-11 rounded-xl glass-panel flex items-center justify-center text-cyber-cyan hover:text-white hover:scale-105 duration-300"
+                                aria-label="LinkedIn Profile">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/alizanisar-del" target="_blank"
+                                class="w-11 h-11 rounded-xl glass-panel flex items-center justify-center text-cyber-cyan hover:text-white hover:scale-105 duration-300"
+                                aria-label="GitHub Profile">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://wa.me/923000000000" target="_blank"
+                                class="w-11 h-11 rounded-xl glass-panel flex items-center justify-center text-emerald-400 hover:text-white hover:scale-105 duration-300"
+                                aria-label="WhatsApp Contact">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/alizanisar474" target="_blank"
+                                class="w-11 h-11 rounded-xl glass-panel flex items-center justify-center text-cyber-cyan hover:text-white hover:scale-105 duration-300"
+                                aria-label="Instagram Profile">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form and Custom Google Map -->
+                <div class="col-span-1 lg:col-span-7 flex flex-col gap-8" data-aos="fade-left" data-aos-duration="1000">
+
+                    <!-- Contact Form Card -->
+                    <div class="glass-panel p-8 md:p-10 relative">
+                        <h3 class="text-2xl font-bold font-outfit text-white tracking-wide mb-6">Send A Message</h3>
+
+                        <!-- Floating Feedback Banner -->
+                        <div id="form-feedback" class="mb-4"></div>
+
+                        <form id="contact-form" class="flex flex-col gap-6">
+                            <!-- Name & Email columns -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col gap-2">
+                                    <label for="form-name"
+                                        class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Your
+                                        Name</label>
+                                    <input type="text" id="form-name" required placeholder="Enter name"
+                                        class="px-5 py-3 rounded-xl bg-cyber-navy/85 border border-cyber-border text-white placeholder-slate-500 focus:outline-none focus:border-cyber-cyan/60 transition-colors">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label for="form-email"
+                                        class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Your
+                                        Email</label>
+                                    <input type="email" id="form-email" required placeholder="name@domain.com"
+                                        class="px-5 py-3 rounded-xl bg-cyber-navy/85 border border-cyber-border text-white placeholder-slate-500 focus:outline-none focus:border-cyber-cyan/60 transition-colors">
+                                </div>
+                            </div>
+                            <!-- Message -->
+                            <div class="flex flex-col gap-2">
+                                <label for="form-message"
+                                    class="text-xs uppercase tracking-widest text-cyber-secondary font-semibold">Message</label>
+                                <textarea id="form-message" rows="5" required placeholder="Write details..."
+                                    class="px-5 py-3 rounded-xl bg-cyber-navy/85 border border-cyber-border text-white placeholder-slate-500 focus:outline-none focus:border-cyber-cyan/60 transition-colors resize-none"></textarea>
+                            </div>
+                            <!-- Submit Button -->
+                            <button type="submit"
+                                class="glow-btn px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-3 hover:shadow-xl hover:shadow-cyan-500/20 active:translate-y-0.5 transition-all">
+                                <span class="submit-text">Send Message</span>
+                                <i class="fas fa-paper-plane text-sm"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Embed Map Card -->
+                    <div class="glass-panel overflow-hidden h-72 relative rounded-2xl border border-cyber-border">
+                        <!-- Custom dark-mode Google map style simulation -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57053.48625902148!2d70.27854655!3d28.4210928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39375c3f3801f9bb%3A0x3ea79b3f36ee009e!2sRahim%20Yar%20Khan%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2spk!4v1716982000000!5m2!1sen!2spk"
+                            width="100%" height="100%"
+                            style="border:0; filter: invert(90%) hue-rotate(180deg) grayscale(10%) contrast(90%);"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Interactive map of Rahim Yar Khan, Pakistan">
+                        </iframe>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Minimal Modern Footer -->
+    <footer class="bg-cyber-navy py-12 border-t border-cyber-border/40 relative z-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <!-- Left Info -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <span class="text-xl font-bold font-outfit text-white tracking-wider">ALIZA<span
+                        class="text-cyber-cyan font-light">.NISAR</span></span>
+                <p class="text-xs text-cyber-secondary mt-2">© 2026 Aliza Nisar. All rights reserved. Designed &
+                    developed with passion.</p>
+            </div>
+
+            <!-- Quick navigation links -->
+            <div
+                class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest font-semibold font-outfit">
+                <a href="#hero" class="text-cyber-secondary hover:text-white transition-colors">Home</a>
+                <a href="#about" class="text-cyber-secondary hover:text-white transition-colors">About</a>
+                <a href="#skills" class="text-cyber-secondary hover:text-white transition-colors">Skills</a>
+                <a href="#services" class="text-cyber-secondary hover:text-white transition-colors">Services</a>
+                <a href="#portfolio" class="text-cyber-secondary hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="text-cyber-cyan hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a id="back-to-top" href="#hero"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white shadow-xl shadow-cyan-500/25 border border-cyan-400/20 translate-y-4 opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 animate-bounce"
+        aria-label="Scroll back to top of the page">
+        <i class="fas fa-chevron-up text-base"></i>
+    </a>
+
+    <!-- AOS (Animate on Scroll) Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize Scroll reveal controls
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <!-- Custom Core Javascript logic -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
